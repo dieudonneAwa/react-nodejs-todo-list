@@ -27,6 +27,6 @@
       },
       "plugins": ["import", "react"],
       "rules": {
-          
+          "comma-dangle": 0
       }
 }

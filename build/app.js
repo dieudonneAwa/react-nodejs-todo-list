@@ -1,5 +1,4 @@
-"use strict";
-
+/* eslint-disable */
 var _express = _interopRequireDefault(require("express"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
