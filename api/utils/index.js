@@ -8,7 +8,7 @@ config();
 export const jwtToken = {
   createToken({ id, email }) {
     return jwt.sign(
-      { id, email },
+      { userId: id, email },
       process.env.JWT_SECRET,
       { expiresIn: '24h' }
     );
