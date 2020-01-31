@@ -7,7 +7,8 @@
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && babel api --out-dir build",
     "start": "node build/app.js",
-    "dev": "nodemon --exec babel-node api/app.js"
+    "dev": "nodemon --exec babel-node api/app.js",
+    "migrate:all": "sequelize db:migrate:undo:all && sequelize db:migrate"
   },
   "keywords": [],
   "author": "",

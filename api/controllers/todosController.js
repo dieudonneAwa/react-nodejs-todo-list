@@ -1,4 +1,6 @@
-import { Todo, TodoItem } from '../models';
+import models from '../models';
+
+const { Todo, TodoItem } = models;
 
 const todos = {
   async create({ body, decoded }, res, next) {
