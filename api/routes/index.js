@@ -10,6 +10,8 @@ export const routes = (app) => {
 
   app.post('/api/auth/sign_up', validateAuth, auth.signUp);
   app.post('/api/auth/sign_in', auth.signIn);
+  app.post('/api/auth/forgot_password', auth.sendResetLink);
+  app.post('/reset_password/:token', auth.resetPassword);
 
   app.post('/api/todos', authorize, todos.create);
   app.get('/api/todos', authorize, todos.fetchAll);
