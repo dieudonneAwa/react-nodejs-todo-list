@@ -1,7 +1,6 @@
 import React from 'react';
 import { Nav } from './Styles';
 import { signUp, signIn } from '../../actions';
-import { connect } from 'react-redux';
 
 const NavBar = (props) => {
   const handleSignUp = async () => {
@@ -40,4 +39,4 @@ const mapStateToProps = ({ auth }) => {
   return { ...auth }
 }
 
-export default connect(mapStateToProps, { signUp, signIn })(NavBar);
+export default NavBar;

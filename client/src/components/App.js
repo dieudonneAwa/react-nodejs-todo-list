@@ -1,14 +1,19 @@
 import React from 'react';
-import NavBar from './nav/NavBar';
 import Landing from './landing/Landing';
+import { Provider } from '../context/authContext';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <Landing />
     </div>
   );
 }
 
-export default App;
+export default () => {
+  return (
+    <Provider>
+      <App />
+    </Provider>
+  )
+};
