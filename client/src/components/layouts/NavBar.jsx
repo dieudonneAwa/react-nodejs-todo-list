@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Nav } from './Styles';
 import { signUp, signIn } from '../../actions';
 
@@ -25,8 +26,10 @@ const NavBar = (props) => {
             <div className="logo"><a href="/">Best To Do List</a></div>
           </div>
           <div className="auth-btns col-md-7">
-            <button onClick={handleSignUp} className="btn sign-up">Sign Up</button>
-            <button onClick={handleSignIn} className="btn sign-in">Sign In</button>
+            <NavLink to="/signup">
+              <button className="btn sign-up">Sign Up</button>
+            </NavLink>
+            <button className="btn sign-in">Sign In</button>
           </div>
         </div>
       </div>

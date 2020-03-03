@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavBar from '../nav/NavBar';
+import NavBar from './NavBar';
 import Footer from './Footer';
 
 const Wrapper = styled.div`
