@@ -29,7 +29,9 @@ const NavBar = (props) => {
             <NavLink to="/signup">
               <button className="btn sign-up">Sign Up</button>
             </NavLink>
-            <button className="btn sign-in">Sign In</button>
+            <NavLink to="/signin">
+              <button className="btn sign-in">Sign In</button>
+            </NavLink>
           </div>
         </div>
       </div>

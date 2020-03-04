@@ -5,7 +5,8 @@ import { signUp, signIn } from '../actions';
 export const initialState = {
   user: null,
   isAuthenticated: false,
-  signUpErr: ''
+  signUpErr: '',
+  signInErr: ''
 };
 
 export const { Context, Provider } = createDataContext(

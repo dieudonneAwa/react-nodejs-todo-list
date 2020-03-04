@@ -8,8 +8,14 @@ const auth = (state = initialState, action) => {
     case 'SIGNUP_USER_FAILURE':
       console.log(action)
       return { ...state, signUpErr: action.payload.error };
-    case 'SIGNIN_USER': 
+
+      // Sign in cases
+    case 'SIGNIN_USER_SUCCESS':
+      console.log(action)
       return { ...state, user: action.payload.user, isAuthenticated: true };
+    case 'SIGNIN_USER_FAILURE':
+      console.log(action);
+      return { ...state, signInErr: action.payload.error }
     default:
       return state;
   }
