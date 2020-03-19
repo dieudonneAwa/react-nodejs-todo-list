@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Cookies from 'js-cookie';
 import Layout from '../layouts/Layout';
 import { TodoList } from './Styles';
 import CreateTodoModal from './CreateTodoModal';
+import { Context as TodosContext, Provider as TodosProvider } from '../../context/todosContext';
+import RenderTodos from './RenderTodos';
 
 
 const ListTodos = () => {
+  const { state, fetchTodos } = useContext(TodosContext);
   const [showModal, setshowModal] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      await fetchTodos(Cookies);
+    })();
+  }, []);
 
   const handleShowModal = () => {
     setshowModal(true);
@@ -30,10 +40,17 @@ const ListTodos = () => {
               <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button>
             </div>
           </div>
+          <RenderTodos />
         </div>
       </TodoList>
     </Layout>
   )
 }
 
-export default ListTodos;
+export default () => {
+  return (
+    <TodosProvider>
+      <ListTodos />
+    </TodosProvider>
+  )
+};
