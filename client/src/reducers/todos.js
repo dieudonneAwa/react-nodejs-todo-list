@@ -31,6 +31,15 @@ const todosReducer = (state = initialState, action) => {
         fetchTodosError: action.error,
       };
 
+    case 'DELETE_TODO_SUCCESS':
+      const { todos } = state;
+      const newTodos = todos.filter((todo) => todo.id !== action.payload);
+      return { ...state, todos: newTodos };
+
+    case 'CREATE_TASK_SUCCESS':
+      console.log(action.payload)
+      return { ...state };
+
     default:
       return state;
   }
