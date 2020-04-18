@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import { CheckDouble } from '@styled-icons/boxicons-regular/CheckDouble';
+
+export const Tick = styled(CheckDouble)`
+  width: 30px;
+  color: #06A82A;
+  margin-right: -10px;
+`;
 
 export const TodoList = styled.div`
   width: 100%;

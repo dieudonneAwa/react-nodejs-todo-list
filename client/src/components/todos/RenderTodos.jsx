@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import Cookies from 'js-cookie';
 import { Context as TodosContext } from '../../context/todosContext';
 import CreateTask from './CreateTask';
+import ListTasks from './ListTasks';
 
 const RenderTodos = () => {
   const [showCreateTask, setshowCreateTask] = useState(false);
@@ -35,6 +36,18 @@ const RenderTodos = () => {
     }
   }
 
+  const handleDone = async (task) => {
+    const res = await markTaskAsDone({
+      id: task.id,
+      isCompleted: true,
+      text: task.text
+    });
+    if (res) {
+      setshowCreateTask(false);
+      await fetchTodos(Cookies);
+    }
+  }
+
   return (
     <div className="container">
       <div className="row justify-content-center todos">
@@ -49,6 +62,9 @@ const RenderTodos = () => {
                 Add task
               </button>
               <h5>{i}. {todo.title}</h5>
+              <ul className="list-group">
+                <ListTasks handleDone={handleDone} todo={todo} />
+              </ul>
               {showCreateTask && todoId === todo.id && <CreateTask handleChange={handleChange} handleSubmit={handleSubmit} />}
             </div>
           )

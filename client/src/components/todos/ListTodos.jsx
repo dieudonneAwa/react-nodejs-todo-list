@@ -10,6 +10,7 @@ import RenderTodos from './RenderTodos';
 const ListTodos = () => {
   const { state, fetchTodos } = useContext(TodosContext);
   const [showModal, setshowModal] = useState(false);
+  const [todoId, setTodoId] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -23,6 +24,11 @@ const ListTodos = () => {
 
   const handleCloseModal = () => {
     setshowModal(false);
+  }
+
+  const handleAddTask = (todo) => {
+    // setshowAddTaskInput(true);
+    setTodoId(todo.id);
   }
   
   return (
@@ -40,7 +46,10 @@ const ListTodos = () => {
               <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button>
             </div>
           </div>
-          <RenderTodos />
+          <RenderTodos
+            handleAddTask={handleAddTask}
+            todoId={todoId}
+          />
         </div>
       </TodoList>
     </Layout>
