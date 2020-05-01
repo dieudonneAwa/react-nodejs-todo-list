@@ -8,7 +8,9 @@
     "build": "npm run clean && babel api --out-dir build",
     "start": "node build/app.js",
     "dev": "nodemon --exec babel-node api/app.js",
-    "migrate:all": "sequelize db:migrate:undo:all && sequelize db:migrate"
+    "migrate:all": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +41,8 @@
     "jwt-decode": "^2.2.0",
     "react-router-dom": "^5.1.2",
     "sequelize": "^5.21.2",
-    "validator": "^12.2.0"
-  }
+    "validator": "^12.2.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
